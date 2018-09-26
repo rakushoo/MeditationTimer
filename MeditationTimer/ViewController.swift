@@ -11,13 +11,16 @@ import UIKit
 class ViewController: UIViewController {
 
     var timer: Timer!
+    var duration = 0
+    
+    
     var startTime = Date()
     
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var minuteLabel: UILabel!
     @IBOutlet weak var secondLabel: UILabel!
     
-    @IBAction func button() {
+    @IBAction func startButtonPushed() {
         label.text = "瞑想中です。"
         startTimer()
     }
@@ -89,7 +92,9 @@ class ViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
-        timer.invalidate()
+        if timer != nil {
+            timer.invalidate()
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -97,6 +102,10 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func presetOpenAction(_ sender: Any) {
+        performSegue(withIdentifier: "testSegue", sender: nil)
 
+    }
+    
 }
 

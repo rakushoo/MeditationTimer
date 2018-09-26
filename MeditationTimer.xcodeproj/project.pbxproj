@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		290BCD1C2159003000159D29 /* PresetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290BCD1B2159003000159D29 /* PresetViewController.swift */; };
+		290BCD22215A68EF00159D29 /* TitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290BCD21215A68EF00159D29 /* TitleViewController.swift */; };
+		290BCD24215BBA1F00159D29 /* SettingViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290BCD23215BBA1F00159D29 /* SettingViewController2.swift */; };
 		29CF2B1720D625BF00920494 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CF2B1620D625BF00920494 /* AppDelegate.swift */; };
 		29CF2B1920D625BF00920494 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CF2B1820D625BF00920494 /* ViewController.swift */; };
 		29CF2B1C20D625BF00920494 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29CF2B1A20D625BF00920494 /* Main.storyboard */; };
@@ -15,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		290BCD1B2159003000159D29 /* PresetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetViewController.swift; sourceTree = "<group>"; };
+		290BCD21215A68EF00159D29 /* TitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewController.swift; sourceTree = "<group>"; };
+		290BCD23215BBA1F00159D29 /* SettingViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController2.swift; sourceTree = "<group>"; };
 		29CF2B1320D625BF00920494 /* MeditationTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeditationTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29CF2B1620D625BF00920494 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		29CF2B1820D625BF00920494 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +28,7 @@
 		29CF2B1D20D625BF00920494 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		29CF2B2020D625BF00920494 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		29CF2B2220D625BF00920494 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		29F851DA212951FF00B6E3CC /* MeditationTimer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MeditationTimer-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +67,10 @@
 				29CF2B1D20D625BF00920494 /* Assets.xcassets */,
 				29CF2B1F20D625BF00920494 /* LaunchScreen.storyboard */,
 				29CF2B2220D625BF00920494 /* Info.plist */,
+				29F851DA212951FF00B6E3CC /* MeditationTimer-Bridging-Header.h */,
+				290BCD1B2159003000159D29 /* PresetViewController.swift */,
+				290BCD21215A68EF00159D29 /* TitleViewController.swift */,
+				290BCD23215BBA1F00159D29 /* SettingViewController2.swift */,
 			);
 			path = MeditationTimer;
 			sourceTree = "<group>";
@@ -96,6 +107,7 @@
 				TargetAttributes = {
 					29CF2B1220D625BF00920494 = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0940;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -137,7 +149,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				29CF2B1920D625BF00920494 /* ViewController.swift in Sources */,
+				290BCD24215BBA1F00159D29 /* SettingViewController2.swift in Sources */,
+				290BCD1C2159003000159D29 /* PresetViewController.swift in Sources */,
 				29CF2B1720D625BF00920494 /* AppDelegate.swift in Sources */,
+				290BCD22215A68EF00159D29 /* TitleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,10 +275,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = MeditationTimer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shogokohraku.MeditationTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MeditationTimer/MeditationTimer-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -272,10 +290,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = MeditationTimer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shogokohraku.MeditationTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MeditationTimer/MeditationTimer-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -299,6 +319,7 @@
 				29CF2B2720D625BF00920494 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
