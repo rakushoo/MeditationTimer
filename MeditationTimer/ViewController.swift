@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
 
     var timer: Timer!
     var duration = 0
-    
+    let settingKey = "timerValue"
+    var audioPlayer: AVAudioPlayer!
     
     var startTime = Date()
     
@@ -22,7 +24,18 @@ class ViewController: UIViewController {
     
     @IBAction func startButtonPushed() {
         label.text = "瞑想中です。"
-        startTimer()
+        
+        if let nowTimer = timer {
+            if nowTimer.isValid == true {
+                return
+            }
+        }
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.timerStop(_:)), userInfo: nil, repeats: true)
+        
+        //音を鳴らす
+        playSound(name: "water current")
+        
+        //startTimer()
     }
     
     @IBAction func stopButtonPushed() {
@@ -38,6 +51,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let settings = UserDefaults.standard
+        settings.register(defaults: [settingKey: 10])
+        
         minuteLabel.text = "00"
         secondLabel.text = "00"
     }
@@ -54,6 +70,8 @@ class ViewController: UIViewController {
             userInfo: nil,
             repeats: true)
         startTime = Date()
+        //音を鳴らす
+        playSound(name: "water current")
     }
     
     @objc func timerCounter() {
@@ -74,12 +92,27 @@ class ViewController: UIViewController {
 
         minuteLabel.text = sMinute
         secondLabel.text = sSecond
+        
+        if second == 3 {
+
+            stopTimer()
+
+            audioPlayer.stop()
+            
+            //システムサウンドを再生する
+            //https://qiita.com/hideji2/items/e7ed482ccffef2c0f66c
+            var soundIdRing:SystemSoundID = 0
+            let soundUrl = NSURL(fileURLWithPath: "/System/Library/PrivateFrameworks/MessagesHelperKit.framework/Versions/A/PlugIns/AlertsController.bundle/Contents/Resources/Ringer.aiff")
+            AudioServicesCreateSystemSoundID(soundUrl, &soundIdRing)
+            AudioServicesPlaySystemSound(soundIdRing)
+        }
     }
     
     func stopTimer() {
         if timer != nil{
             timer.invalidate()
         }
+        audioPlayer.stop()
     }
     
     func resetTimer() {
@@ -107,5 +140,46 @@ class ViewController: UIViewController {
 
     }
     
+    func displayUpdate() -> Int {
+        let settings = UserDefaults.standard
+        let timerValue = settings.integer(forKey: settingKey)
+        let remainSeconds = timerValue - duration
+        secondLabel.text = "\(remainSeconds)"
+        return remainSeconds
+    }
+    
+    func timerStop(_ timer:Timer){
+        duration += 1
+        if displayUpdate() <= 0 {
+            duration = 0
+            timer.invalidate()
+            
+            //システムサウンドを再生する
+            //https://qiita.com/hideji2/items/e7ed482ccffef2c0f66c
+            var soundIdRing:SystemSoundID = 0
+            let soundUrl = NSURL(fileURLWithPath: "/System/Library/PrivateFrameworks/MessagesHelperKit.framework/Versions/A/PlugIns/AlertsController.bundle/Contents/Resources/Ringer.aiff")
+            AudioServicesCreateSystemSoundID(soundUrl, &soundIdRing)
+            AudioServicesPlaySystemSound(soundIdRing)
+            
+        }
+    }
 }
 
+extension ViewController: AVAudioPlayerDelegate {
+    func playSound(name: String) {
+        guard let path = Bundle.main.path(forResource: name, ofType: "mp3") else {
+            print("音源ファイルが見つかりません")
+            return
+        }
+        
+        do{
+            audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+            
+            audioPlayer.delegate = self
+            
+            audioPlayer.play()
+        } catch {
+
+        }
+    }
+}
