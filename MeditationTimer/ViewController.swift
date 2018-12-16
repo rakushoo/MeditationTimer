@@ -96,8 +96,6 @@ class ViewController: UIViewController {
         if second == 3 {
 
             stopTimer()
-
-            audioPlayer.stop()
             
             //システムサウンドを再生する
             //https://qiita.com/hideji2/items/e7ed482ccffef2c0f66c
@@ -112,6 +110,7 @@ class ViewController: UIViewController {
         if timer != nil{
             timer.invalidate()
         }
+        label.text = "停止しています。"
         audioPlayer.stop()
     }
     
@@ -152,7 +151,7 @@ class ViewController: UIViewController {
         duration += 1
         if displayUpdate() <= 0 {
             duration = 0
-            timer.invalidate()
+            stopTimer()
             
             //システムサウンドを再生する
             //https://qiita.com/hideji2/items/e7ed482ccffef2c0f66c
