@@ -135,8 +135,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func presetOpenAction(_ sender: Any) {
-        performSegue(withIdentifier: "testSegue", sender: nil)
-
+    //    performSegue(withIdentifier: "testSegue", sender: nil)
     }
     
     func displayUpdate() -> Int {

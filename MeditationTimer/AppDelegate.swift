@@ -13,6 +13,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    let sectionNum: Int = 4
+    let timerNum: Int = 4
+
+    // タイマー4個分の配列
+    var timerArray = [timerData(), timerData(), timerData(), timerData()]
+    var currentTimerIndex: Int = 0
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -44,3 +51,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+//外部変数：タイマー設定
+struct sectionData {
+    var minute: Int = 0
+    var second: Int = 10
+    var bEnabled: Bool = true
+    var sectionName: String = String("セクション")
+}
+struct timerData {
+    var section: [sectionData] = [sectionData(),
+                                  sectionData(),
+                                  sectionData(),
+                                  sectionData()]
+    var currentSectionIndex:Int = 0
+    var bEnabled: Bool = true
+    var timerName: String = String("タイマー")
+}

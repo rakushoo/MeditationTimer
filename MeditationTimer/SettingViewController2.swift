@@ -8,14 +8,23 @@
 
 import UIKit
 
-class SettingViewController2: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
+class SettingViewController2: UIViewController
+    , UIPickerViewDataSource
+    , UIPickerViewDelegate
+    , UITableViewDataSource
+    , UITableViewDelegate
  {
 
     let effectArray : [String] = [ "OFF", "Sea", "Forest", "Cloud", "Stream" ]
     let settingKey = "effectValue"
     
+    @IBOutlet weak var TableView: UITableView!
+    let fruits = ["apple", "orange", "melon", "peach" ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Do any additional setup after loading the view.
         
         soundEffectPicker.delegate = self
         soundEffectPicker.dataSource = self
@@ -29,11 +38,20 @@ class SettingViewController2: UIViewController, UIPickerViewDataSource, UIPicker
             }
         }
         
-        
-        // Do any additional setup after loading the view.
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return fruits.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "testCell", for: indexPath)
+        
+        cell.textLabel!.text = fruits[indexPath.row]
+        return cell
+    }
 
+    
     @IBOutlet weak var soundEffectPicker: UIPickerView!
     @IBOutlet weak var chooseAction: UIPickerView!
     

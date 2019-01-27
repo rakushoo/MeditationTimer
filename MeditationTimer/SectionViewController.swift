@@ -1,17 +1,14 @@
 //
-//  SettingViewController.swift
+//  SectionViewController.swift
 //  MeditationTimer
 //
-//  Created by shogo kohraku on 2019/01/03.
+//  Created by shogo kohraku on 2019/01/19.
 //  Copyright © 2019年 shogo kohraku. All rights reserved.
 //
 
 import UIKit
 
-class SettingViewController: UIViewController
-{
-
-    @IBOutlet weak var testTableView: UITableView!
+class SectionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,8 +16,7 @@ class SettingViewController: UIViewController
         // Do any additional setup after loading the view.
     }
     
-    
-    
+
     /*
     // MARK: - Navigation
 
