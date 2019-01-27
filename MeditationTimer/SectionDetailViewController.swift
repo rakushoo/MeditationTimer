@@ -1,5 +1,5 @@
 //
-//  PresetViewController.swift
+//  SectionDetailViewController.swift
 //  MeditationTimer
 //
 //  Created by shogo kohraku on 2018/09/24.
@@ -9,22 +9,33 @@
 import UIKit
 import Social
 
-class PresetViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class SectionDetailViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
     let valueArray : [Int] = [10,20,30,40,50,60]
-    let settingKey = "timerValue"
-    
+    let settingKey = "timerValue" 
+    var dispMinute: Int = 0
+    var dispSecond: Int = 0
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         timerPicker.delegate = self
         timerPicker.dataSource = self
         
-        let settings = UserDefaults.standard
-        let timerValue = settings.integer(forKey: settingKey)
+        // データ共有方法
+        //let settings = UserDefaults.standard
+        //let timerValue = settings.integer(forKey: settingKey)
         
+        //AppDelegateのインスタンスを取得
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let index = appDelegate.currentTimerIndex
+        let sectionIndex = appDelegate.timerArray[index].currentSectionIndex
+        let curMinute = appDelegate.timerArray[index].section[sectionIndex].minute
+        let curSecond = appDelegate.timerArray[index].section[sectionIndex].second
+
+
         for row in 0..<valueArray.count {
-            if valueArray[row] == timerValue {
+            if dispMinute == curMinute {
                 timerPicker.selectRow(row, inComponent: 0, animated: true)
             }
         }
@@ -45,13 +56,14 @@ class PresetViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
 
     @IBAction func tapTweetButton(_ sender: Any) {
         // Twitterの投稿ダイアログを作って
-        var cv = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+        //var cv = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
         // 文字を追加
-        //ビルドエラーになる。。
-        //cv.setInitialText("追加テキスト")
-        // 投稿ダイアログを表示する
+        //cv?.setInitialText("追加テキスト")
+        // 投稿ダイアログを表示する ビルドエラーになる。。
         //self.presentViewController(cv, animated: true, completion:nil )
     }
+
+
     @IBOutlet weak var soundEffectPicker: UIPickerView!
     @IBOutlet weak var finishSoundPicker: UIPickerView!
     
@@ -61,18 +73,19 @@ class PresetViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         _ = navigationController?.popViewController(animated: true)
     }
     
+    // 列数
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+        return 2
     }
-
+    // 行数
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return valueArray.count
+        return 60//valueArray.count
     }
-
+    // 表示内容
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return String(valueArray[row])
+        return String(row)//valueArray[row])
     }
-
+    // 選択された時の動作
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let settings = UserDefaults.standard
         settings.setValue(valueArray[row], forKey: settingKey)
