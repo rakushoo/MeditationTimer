@@ -13,10 +13,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    let sectionNum: Int = 4
     let timerNum: Int = 4
 
-    // タイマー4個分の配列
+    // タイマー4個分の配列、暫定で4固定
     var timerArray = [timerData(), timerData(), timerData(), timerData()]
     var currentTimerIndex: Int = 0
     
@@ -59,6 +58,7 @@ struct sectionData {
     var sectionName: String = String("セクション")
 }
 struct timerData {
+    let sectionNum: Int = 4
     var section: [sectionData] = [sectionData(),
                                   sectionData(),
                                   sectionData(),

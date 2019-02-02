@@ -55,12 +55,29 @@ class ViewController: UIViewController {
         settings.register(defaults: [settingKey: 10])
         
         minuteLabel.text = "00"
-        secondLabel.text = "00"
+        secondLabel.text = "10"
+        
     }
 
-    //override func viewDidAppear(_ animated: Bool) {
-    //    super.viewDidAppear(true)
-    //}
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        duration = 0
+        _ = displayUpdate()
+
+        // タイマー表示を更新
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let tIndex = appDelegate.currentTimerIndex
+        let sIndex = appDelegate.timerArray[tIndex].currentSectionIndex
+        let minute = appDelegate.timerArray[tIndex].section[sIndex].minute
+        let second = appDelegate.timerArray[tIndex].section[sIndex].second
+        minuteLabel.text = String(format: "%02d", minute)
+        secondLabel.text = String(format: "%02d", second)
+        let totalSec = minute * 60 + second
+        
+        let settings = UserDefaults.standard
+        settings.setValue(totalSec, forKey: settingKey)
+    }
    
     func startTimer() {
         timer = Timer.scheduledTimer(
@@ -142,7 +159,14 @@ class ViewController: UIViewController {
         let settings = UserDefaults.standard
         let timerValue = settings.integer(forKey: settingKey)
         let remainSeconds = timerValue - duration
-        secondLabel.text = "\(remainSeconds)"
+
+        let dispMin = remainSeconds / 60
+        let dispSec = remainSeconds % 60
+
+        minuteLabel.text = String(format: "%02d", dispMin)
+        secondLabel.text = String(format: "%02d", dispSec)
+        //secondLabel.text = "\(remainSeconds)"
+
         return remainSeconds
     }
     

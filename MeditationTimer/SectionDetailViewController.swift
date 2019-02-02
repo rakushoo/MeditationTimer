@@ -9,36 +9,46 @@
 import UIKit
 import Social
 
-class SectionDetailViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class SectionDetailViewController: UIViewController
+    , UIPickerViewDataSource
+    , UIPickerViewDelegate
+{
 
-    let valueArray : [Int] = [10,20,30,40,50,60]
-    let settingKey = "timerValue" 
-    var dispMinute: Int = 0
-    var dispSecond: Int = 0
+    //let valueArray : [Int] = [10,20,30,40,50,60]
+    //let settingKey = "timerValue"
+    //var dispMinute: Int = 0
+    //var dispSecond: Int = 0
 
+    //選択中のセクションを取得
+    func getSectionData() -> sectionData {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let index = appDelegate.currentTimerIndex
+        let data = appDelegate.timerArray[index]
+        let sectionIndex = data.currentSectionIndex
+        return data.section[sectionIndex]
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        timerPicker.delegate = self
-        timerPicker.dataSource = self
+        //timerPicker.delegate = self
+        //timerPicker.dataSource = self
         
         // データ共有方法
         //let settings = UserDefaults.standard
         //let timerValue = settings.integer(forKey: settingKey)
         
         //AppDelegateのインスタンスを取得
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let index = appDelegate.currentTimerIndex
-        let sectionIndex = appDelegate.timerArray[index].currentSectionIndex
-        let curMinute = appDelegate.timerArray[index].section[sectionIndex].minute
-        let curSecond = appDelegate.timerArray[index].section[sectionIndex].second
+ //       let data = getSectionData()
+//        let curMinute = data.minute
+        //let curSecond = data.second
 
-
-        for row in 0..<valueArray.count {
-            if dispMinute == curMinute {
-                timerPicker.selectRow(row, inComponent: 0, animated: true)
-            }
-        }
+        //for row in 0..<valueArray.count {
+//            if dispMinute == curMinute {
+//                timerPicker.selectRow(row, inComponent: 0, animated: true)
+//            }
+        //}
 
         // Do any additional setup after loading the view.
     }
@@ -87,9 +97,9 @@ class SectionDetailViewController: UIViewController, UIPickerViewDataSource, UIP
     }
     // 選択された時の動作
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let settings = UserDefaults.standard
-        settings.setValue(valueArray[row], forKey: settingKey)
-        settings.synchronize()
+        //let settings = UserDefaults.standard
+        //settings.setValue(valueArray[row], forKey: settingKey)
+        //settings.synchronize()
     }
 
 }
