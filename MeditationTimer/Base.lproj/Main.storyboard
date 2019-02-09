@@ -94,10 +94,10 @@
             </objects>
             <point key="canvasLocation" x="1694" y="-215"/>
         </scene>
-        <!--View Controller-->
+        <!--Section View Controller-->
         <scene sceneID="q9a-iS-zdg">
             <objects>
-                <viewController id="vXo-y8-OCH" sceneMemberID="viewController">
+                <viewController id="vXo-y8-OCH" customClass="SectionViewController" customModule="MeditationTimer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8LD-tW-kGM"/>
                         <viewControllerLayoutGuide type="bottom" id="lwW-Kg-c2U"/>
@@ -107,15 +107,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D8X-8a-TDS">
-                                <rect key="frame" x="44" y="205" width="286" height="303"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="595"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="sectionCell" id="Vcj-yz-5zW">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vcj-yz-5zW" id="HcA-6C-Sjv">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="vXo-y8-OCH" id="4Zn-cv-g8k"/>
+                                    <outlet property="delegate" destination="vXo-y8-OCH" id="d0W-hA-iZQ"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <connections>
-                        <segue destination="CFy-8X-EzZ" kind="showDetail" identifier="openSectionDetail" id="U5I-9F-NL9"/>
+                        <outlet property="sectionTable" destination="D8X-8a-TDS" id="K8p-2m-4go"/>
+                        <segue destination="CFy-8X-EzZ" kind="show" identifier="openDetail" id="b8q-eN-Pv5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LeB-xD-aHX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -302,7 +317,7 @@
         <!--Section Detail View Controller-->
         <scene sceneID="gRT-iN-35z">
             <objects>
-                <viewController id="CFy-8X-EzZ" userLabel="Section Detail View Controller" customClass="SectionDetailViewController" sceneMemberID="viewController">
+                <viewController id="CFy-8X-EzZ" userLabel="Section Detail View Controller" customClass="SectionDetailViewController2" customModule="MeditationTimer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Dr6-Gs-YtN"/>
                         <viewControllerLayoutGuide type="bottom" id="2o4-pM-d0q"/>
@@ -320,18 +335,20 @@
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z6l-ys-4Qj">
-                                <rect key="frame" x="0.0" y="20" width="375" height="216"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="216"/>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sAP-nk-C3K">
-                                <rect key="frame" x="112" y="358" width="150" height="150"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sAP-nk-C3K">
+                                <rect key="frame" x="150" y="396" width="75" height="75"/>
                                 <state key="normal" image="selectBtn"/>
                                 <connections>
-                                    <action selector="chooseAction:" destination="CFy-8X-EzZ" eventType="touchUpInside" id="iF7-cQ-j51"/>
+                                    <action selector="chooseAction:" destination="CFy-8X-EzZ" eventType="touchUpInside" id="X1V-oJ-661"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="sAP-nk-C3K" firstAttribute="centerY" secondItem="a61-8M-zBw" secondAttribute="centerY" constant="100" id="1ko-6y-KzX"/>
+                            <constraint firstItem="sAP-nk-C3K" firstAttribute="centerX" secondItem="a61-8M-zBw" secondAttribute="centerX" id="Obw-5L-uik"/>
                             <constraint firstItem="Z6l-ys-4Qj" firstAttribute="top" secondItem="Dr6-Gs-YtN" secondAttribute="bottom" id="b4D-9p-Pmc"/>
                             <constraint firstItem="sAP-nk-C3K" firstAttribute="centerY" secondItem="a61-8M-zBw" secondAttribute="centerY" constant="100" id="exF-G4-2Rk"/>
                             <constraint firstAttribute="trailing" secondItem="Z6l-ys-4Qj" secondAttribute="trailing" id="yCW-aH-cfK"/>
@@ -344,7 +361,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yg1-kr-drj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3505" y="555"/>
+            <point key="canvasLocation" x="3504.8000000000002" y="554.57271364317842"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PwA-Fb-IiQ">
@@ -369,9 +386,9 @@
         <image name="MenuMeditation" width="35" height="29"/>
         <image name="MenuSetting" width="22" height="22"/>
         <image name="MenuTimer" width="26" height="27"/>
-        <image name="selectBtn" width="150" height="150"/>
-        <image name="startBtn" width="150" height="150"/>
-        <image name="stopBtn" width="150" height="150"/>
+        <image name="selectBtn" width="75" height="75"/>
+        <image name="startBtn" width="75" height="75"/>
+        <image name="stopBtn" width="75" height="75"/>
         <image name="top" width="469" height="845"/>
     </resources>
 </document>

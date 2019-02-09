@@ -31,6 +31,7 @@ class ViewController: UIViewController {
             }
         }
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.timerStop(_:)), userInfo: nil, repeats: true)
+    
         
         //音を鳴らす
         playSound(name: "water current")

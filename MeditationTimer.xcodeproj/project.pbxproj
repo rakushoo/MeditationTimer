@@ -21,6 +21,7 @@
 		29CF2B2120D625BF00920494 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29CF2B1F20D625BF00920494 /* LaunchScreen.storyboard */; };
 		29D35B7221DE097000D2C67A /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D35B7121DE097000D2C67A /* SettingViewController.swift */; };
 		29D35B7421DE0DAA00D2C67A /* TimeSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D35B7321DE0DAA00D2C67A /* TimeSettingViewController.swift */; };
+		29F4441D2205944D00188A9C /* SectionDetailViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F4441C2205944D00188A9C /* SectionDetailViewController2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		29CF2B2220D625BF00920494 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		29D35B7121DE097000D2C67A /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		29D35B7321DE0DAA00D2C67A /* TimeSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSettingViewController.swift; sourceTree = "<group>"; };
+		29F4441C2205944D00188A9C /* SectionDetailViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionDetailViewController2.swift; sourceTree = "<group>"; };
 		29F851DA212951FF00B6E3CC /* MeditationTimer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MeditationTimer-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,6 +75,7 @@
 		29CF2B1520D625BF00920494 /* MeditationTimer */ = {
 			isa = PBXGroup;
 			children = (
+				29F4441C2205944D00188A9C /* SectionDetailViewController2.swift */,
 				29107D3A21F2F4F100B6DA27 /* SectionDetailViewController.swift */,
 				29A9B96A21A1A77E007DD424 /* water current.mp3 */,
 				29CF2B1620D625BF00920494 /* AppDelegate.swift */,
@@ -173,6 +176,7 @@
 				291DE04421B25CE300AF0A0C /* TabBarController.swift in Sources */,
 				29D35B7221DE097000D2C67A /* SettingViewController.swift in Sources */,
 				29CF2B1720D625BF00920494 /* AppDelegate.swift in Sources */,
+				29F4441D2205944D00188A9C /* SectionDetailViewController2.swift in Sources */,
 				29107D3721F2F33700B6DA27 /* SectionViewController.swift in Sources */,
 				29BF351821C643E6001668BC /* TimeSettingViewController.swift in Sources */,
 				29D35B7421DE0DAA00D2C67A /* TimeSettingViewController.swift in Sources */,
