@@ -8,20 +8,73 @@
 
 import UIKit
 
+
+//瞑想中の音
+enum SectionSound {
+    case Sea
+    case Stream
+    case Cloud
+    case Forest
+}
+//瞑想終了時のアラーム
+enum SectionAlerm {
+    case TempleBlock
+    case Chime
+    case Marimba
+    case Triangle
+}
+
+//外部変数：タイマー設定
+struct sectionData {
+    var minute: Int = 0
+    var second: Int = 0
+    var sound: SectionSound = SectionSound.Sea
+    var alerm: SectionAlerm = SectionAlerm.TempleBlock
+    var bEnabled: Bool = true
+    var sectionName: String = String("セクション")
+    
+}
+struct timerData {
+    let sectionNum: Int = 3
+    var section: [sectionData] = [sectionData(), sectionData(), sectionData()]
+    var currentSectionIndex:Int = 0
+    var bEnabled: Bool = true
+    var timerName: String = String("タイマー")
+}
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    let timerNum: Int = 4
+    let timerNum: Int = 3
 
     // タイマー4個分の配列、暫定で4固定
-    var timerArray = [timerData(), timerData(), timerData(), timerData()]
+    var timerArray = [timerData(), timerData(), timerData()]
     var currentTimerIndex: Int = 0
-    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
+        //起動時の初期化
+        timerArray[0].timerName = String(format: "3分瞑想")
+        timerArray[0].section[0].minute = 3
+        timerArray[0].section[0].sectionName = String("セクション1")
+        timerArray[1].timerName = String(format: "6分瞑想")
+        timerArray[1].section[0].minute = 3
+        timerArray[1].section[0].sectionName = String("セクション1")
+        timerArray[1].section[1].bEnabled = true
+        timerArray[1].section[1].minute = 1
+        timerArray[1].section[1].sectionName = String("セクション2")
+        timerArray[2].timerName = String(format: "9分瞑想")
+        timerArray[2].section[0].minute = 3
+        timerArray[2].section[0].sectionName = String("セクション1")
+        timerArray[2].section[1].minute = 3
+        timerArray[2].section[1].sectionName = String("セクション2")
+        timerArray[2].section[2].minute = 3
+        timerArray[2].section[2].sectionName = String("セクション3")
+
         return true
     }
 
@@ -50,20 +103,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
-//外部変数：タイマー設定
-struct sectionData {
-    var minute: Int = 0
-    var second: Int = 10
-    var bEnabled: Bool = true
-    var sectionName: String = String("セクション")
-}
-struct timerData {
-    let sectionNum: Int = 4
-    var section: [sectionData] = [sectionData(),
-                                  sectionData(),
-                                  sectionData(),
-                                  sectionData()]
-    var currentSectionIndex:Int = 0
-    var bEnabled: Bool = true
-    var timerName: String = String("タイマー")
-}
+

@@ -21,31 +21,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Startボタンを押す" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxR-gN-q0g">
-                                <rect key="frame" x="77" y="103" width="165" height="21"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VHS-py-ixx">
+                                <rect key="frame" x="107" y="343" width="161" height="161"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VHS-py-ixx">
-                                <rect key="frame" x="40" y="371" width="100" height="100"/>
                                 <state key="normal" image="startBtn"/>
                                 <connections>
                                     <action selector="startButtonPushed" destination="BYZ-38-t0r" eventType="touchUpInside" id="AaK-fO-5Hd"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="83c-Qi-xhC">
-                                <rect key="frame" x="245" y="229" width="67" height="34"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="83c-Qi-xhC">
+                                <rect key="frame" x="201" y="198" width="158" height="96"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="80"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=":" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UEg-4G-F59">
-                                <rect key="frame" x="185" y="229" width="8" height="34"/>
+                                <rect key="frame" x="178" y="198" width="21" height="96"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="80"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -57,42 +51,68 @@
                                     <action selector="resetButtonPushed" destination="BYZ-38-t0r" eventType="touchUpInside" id="K2o-gn-S1p"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rf0-3R-OMW">
-                                <rect key="frame" x="62" y="229" width="67" height="34"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rf0-3R-OMW">
+                                <rect key="frame" x="42" y="198" width="133" height="96"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="80"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ru2-Sw-FF7">
-                                <rect key="frame" x="228" y="371" width="100" height="100"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ru2-Sw-FF7">
+                                <rect key="frame" x="317" y="407" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="stopBtn"/>
                                 <connections>
-                                    <action selector="stopButtonPushed" destination="BYZ-38-t0r" eventType="touchUpInside" id="5oC-ER-roz"/>
+                                    <action selector="rightButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gtP-Ze-c2K"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G26-RT-07r">
+                                <rect key="frame" x="25" y="407" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="stopBtn"/>
+                                <connections>
+                                    <action selector="leftButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="T5z-JZ-hrj"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H63-2f-kFp">
+                                <rect key="frame" x="100" y="352" width="174" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRY-Tc-ngZ">
+                                <rect key="frame" x="39" y="323" width="297" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Startボタンを押す" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxR-gN-q0g">
+                                <rect key="frame" x="84" y="169" width="207" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="VHS-py-ixx" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="100" id="Dj0-FS-pOO"/>
-                            <constraint firstItem="VHS-py-ixx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-80" id="HL7-vu-OKA"/>
-                            <constraint firstItem="ru2-Sw-FF7" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="100" id="s1a-bG-Gbk"/>
-                            <constraint firstItem="ru2-Sw-FF7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="80" id="wHN-D0-qCm"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="瞑想をする" image="MenuMeditation" id="8mL-bd-0bE"/>
                     <navigationItem key="navigationItem" id="ENt-Fg-Anl" customClass="se">
                         <barButtonItem key="rightBarButtonItem" title="プリセット" id="4H5-hU-L7c"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="buttonLabel" destination="H63-2f-kFp" id="DEH-MM-iMs"/>
                         <outlet property="label" destination="dxR-gN-q0g" id="SFh-hT-1tl"/>
                         <outlet property="minuteLabel" destination="Rf0-3R-OMW" id="y6k-hy-ZW9"/>
+                        <outlet property="modeLabel" destination="eRY-Tc-ngZ" id="tu5-WH-gac"/>
                         <outlet property="secondLabel" destination="83c-Qi-xhC" id="II6-tq-cFF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1694" y="-215"/>
+            <point key="canvasLocation" x="1693.5999999999999" y="-215.44227886056973"/>
         </scene>
         <!--Section View Controller-->
         <scene sceneID="q9a-iS-zdg">
@@ -338,7 +358,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="216"/>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sAP-nk-C3K">
-                                <rect key="frame" x="150" y="396" width="75" height="75"/>
+                                <rect key="frame" x="162.5" y="408.5" width="50" height="50"/>
                                 <state key="normal" image="selectBtn"/>
                                 <connections>
                                     <action selector="chooseAction:" destination="CFy-8X-EzZ" eventType="touchUpInside" id="X1V-oJ-661"/>
@@ -386,9 +406,9 @@
         <image name="MenuMeditation" width="35" height="29"/>
         <image name="MenuSetting" width="22" height="22"/>
         <image name="MenuTimer" width="26" height="27"/>
-        <image name="selectBtn" width="75" height="75"/>
+        <image name="selectBtn" width="50" height="50"/>
         <image name="startBtn" width="75" height="75"/>
-        <image name="stopBtn" width="75" height="75"/>
+        <image name="stopBtn" width="50" height="50"/>
         <image name="top" width="469" height="845"/>
     </resources>
 </document>

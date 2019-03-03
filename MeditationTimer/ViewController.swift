@@ -15,58 +15,65 @@ class ViewController: UIViewController {
     var duration = 0
     let settingKey = "timerValue"
     var audioPlayer: AVAudioPlayer!
+    var bRunning: Bool = true   //ロード時にfalseに切り替える
     
     var startTime = Date()
     
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var minuteLabel: UILabel!
     @IBOutlet weak var secondLabel: UILabel!
+    @IBOutlet weak var buttonLabel: UILabel!
+    @IBOutlet weak var modeLabel: UILabel!
     
-    @IBAction func startButtonPushed() {
-        label.text = "瞑想中です。"
-        
-        if let nowTimer = timer {
-            if nowTimer.isValid == true {
-                return
+    /**
+     * タイマー実行中、停止中の切り替え
+     */
+    func changeState()
+    {
+        bRunning = !bRunning    //トグル的に切り替える
+        if (bRunning) {
+            label.text = "瞑想中です。"
+            modeLabel.text = ""//タイマー実行中、タイマー名は非表示
+            buttonLabel.text = "ストップ"
+        }
+        else{
+            label.text = "スタートボタンを押す。"
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let index = appDelegate.currentTimerIndex
+            modeLabel.text = appDelegate.timerArray[index].timerName
+            buttonLabel.text = "スタート"
+        }
+    }
+    
+    /**
+     * 実行するタイマーの切り替え
+     */
+    func selectTimer(_ bNext:Bool) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        var index = appDelegate.currentTimerIndex
+        if (bNext) {
+            index = index + 1
+            if(index == appDelegate.timerNum) {
+                index = 0
             }
         }
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.timerStop(_:)), userInfo: nil, repeats: true)
-    
-        
-        //音を鳴らす
-        playSound(name: "water current")
-        
-        //startTimer()
-    }
-    
-    @IBAction func stopButtonPushed() {
-        label.text = "停止しています。"
-        stopTimer()
-    }
-    
-    @IBAction func resetButtonPushed() {
-        resetTimer()
-    }
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        let settings = UserDefaults.standard
-        settings.register(defaults: [settingKey: 10])
-        
-        minuteLabel.text = "00"
-        secondLabel.text = "10"
-        
-    }
+        else {
+            index = index - 1
+            if (index == -1) {
+                index = appDelegate.timerNum - 1
+            }
+        }
+        appDelegate.currentTimerIndex = index
+        modeLabel.text = appDelegate.timerArray[index].timerName
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        
-        duration = 0
-        _ = displayUpdate()
-
-        // タイマー表示を更新
+        initTimer()
+    }
+    
+    /**
+     * タイマーの表示を初期状態にする
+     * タイマーカウントを初期化する
+     */
+    func initTimer() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let tIndex = appDelegate.currentTimerIndex
         let sIndex = appDelegate.timerArray[tIndex].currentSectionIndex
@@ -79,63 +86,78 @@ class ViewController: UIViewController {
         let settings = UserDefaults.standard
         settings.setValue(totalSec, forKey: settingKey)
     }
-   
-    func startTimer() {
-        timer = Timer.scheduledTimer(
-            timeInterval: 1,
-            target: self,
-            selector: #selector(self.timerCounter),
-            userInfo: nil,
-            repeats: true)
-        startTime = Date()
-        //音を鳴らす
+    
+    @IBAction func startButtonPushed() {
+        changeState()
+        
+        if (!bRunning) {//停止時の処理
+            stopTimer()
+            return
+        }
+        
+        //タイマー開始・再開時の処理
+        if let nowTimer = timer {
+            if nowTimer.isValid == true {
+                return
+            }
+        }
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.timerStop(_:)), userInfo: nil, repeats: true)
+        
+        //音を鳴らす //TODO 今のセクションの音を選択
         playSound(name: "water current")
     }
     
-    @objc func timerCounter() {
-        // タイマー開始からのインターバル時間
-        let currentTime = Date().timeIntervalSince(startTime)
-        
-        let minute = (Int)(fmod((currentTime/60), 60))
-        let second = (Int)(fmod(currentTime, 60))
-        
-        let sMinute = String(format: "%02d", minute)
-        let sSecond = String(format: "%02d", second)
-
-        
-        //let currentDate = Date()
-        //let formatter = DateFormatter()
-        //formatter.dateFormat = "mm:ss.SSS"
-        //print(formatter.string(from: currentDate))
-
-        minuteLabel.text = sMinute
-        secondLabel.text = sSecond
-        
-        if second == 3 {
-
-            stopTimer()
-            
-            //システムサウンドを再生する
-            //https://qiita.com/hideji2/items/e7ed482ccffef2c0f66c
-            var soundIdRing:SystemSoundID = 0
-            let soundUrl = NSURL(fileURLWithPath: "/System/Library/PrivateFrameworks/MessagesHelperKit.framework/Versions/A/PlugIns/AlertsController.bundle/Contents/Resources/Ringer.aiff")
-            AudioServicesCreateSystemSoundID(soundUrl, &soundIdRing)
-            AudioServicesPlaySystemSound(soundIdRing)
+    @IBAction func rightButtonPushed(_ sender: UIButton) {
+        if (bRunning) {
+            return // タイマー実行中は動作不可
         }
+        selectTimer(true)
     }
     
+    @IBAction func leftButtonPushed(_ sender: UIButton) {
+        if (bRunning) {
+            return // タイマー実行中は動作不可
+        }
+        selectTimer(false)
+    }
+    
+    
+    @IBAction func resetButtonPushed() {
+        if (bRunning) {
+            return // タイマー実行中は動作不可
+        }
+        resetTimer()
+    }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+
+        changeState()//初回のみ実施を想定
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        duration = 0
+        _ = displayUpdate()
+
+        // タイマー表示を初期化
+        initTimer()
+    }
+   
+
     func stopTimer() {
         if timer != nil{
             timer.invalidate()
         }
-        label.text = "停止しています。"
         audioPlayer.stop()
     }
     
     func resetTimer() {
         if timer != nil {
-            minuteLabel.text = "00"
-            secondLabel.text = "00"
+            initTimer()
         }
     }
    
@@ -177,15 +199,36 @@ class ViewController: UIViewController {
             duration = 0
             stopTimer()
             
-            //システムサウンドを再生する
-            //https://qiita.com/hideji2/items/e7ed482ccffef2c0f66c
-            var soundIdRing:SystemSoundID = 0
-            let soundUrl = NSURL(fileURLWithPath: "/System/Library/PrivateFrameworks/MessagesHelperKit.framework/Versions/A/PlugIns/AlertsController.bundle/Contents/Resources/Ringer.aiff")
-            AudioServicesCreateSystemSoundID(soundUrl, &soundIdRing)
-            AudioServicesPlaySystemSound(soundIdRing)
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let tIndex = appDelegate.currentTimerIndex
+            let sIndex = appDelegate.timerArray[tIndex].currentSectionIndex
+            let alerm = appDelegate.timerArray[tIndex].section[sIndex].alerm
+            
+            playAlert(alerm)
+//            //システムサウンドを再生する
+//            //https://qiita.com/hideji2/items/e7ed482ccffef2c0f66c
+//            var soundIdRing:SystemSoundID = 0
+//            let soundUrl = NSURL(fileURLWithPath: "/System/Library/PrivateFrameworks/MessagesHelperKit.framework/Versions/A/PlugIns/AlertsController.bundle/Contents/Resources/Ringer.aiff")
+//            AudioServicesCreateSystemSoundID(soundUrl, &soundIdRing)
+//            AudioServicesPlaySystemSound(soundIdRing)
             
         }
     }
+    
+    func playAlert(_ id: SectionAlerm) {
+        //システムサウンドを再生する
+        //https://qiita.com/hideji2/items/e7ed482ccffef2c0f66c
+        var soundIdRing:SystemSoundID = 0
+        var soundUrl:NSURL
+        switch id {
+        case .Chime, .Marimba, .TempleBlock, .Triangle:
+            soundUrl = NSURL(fileURLWithPath: "/System/Library/PrivateFrameworks/MessagesHelperKit.framework/Versions/A/PlugIns/AlertsController.bundle/Contents/Resources/Ringer.aiff")
+            break
+        }
+        AudioServicesCreateSystemSoundID(soundUrl, &soundIdRing)
+        AudioServicesPlaySystemSound(soundIdRing)
+    }
+    
 }
 
 extension ViewController: AVAudioPlayerDelegate {
