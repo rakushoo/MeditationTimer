@@ -53,11 +53,10 @@ class SectionViewController: UIViewController
         if (data.section[i].bEnabled) {
             //cell.textLabel!.text = data.section[i].sectionName
             cell.textLabel!.text =
-                String(format: "%@%@ - %@:%@"
+                String(format: "%@ - %d:%02d"
                     , data.section[i].sectionName
-                    , String(i)
-                    , String(data.section[i].minute)
-                    , String(data.section[i].second))
+                    , data.section[i].minute
+                    , data.section[i].second)
         }
 
         // セルに">"を表示

@@ -27,13 +27,6 @@ class TitleViewController: UIViewController {
     }
     */
 
-    @IBAction func settingClickedAction(_ sender: Any) {
-        performSegue(withIdentifier: "openSetting2", sender: nil)
-    }
-    
-    
-    
-    
     @IBAction func titleClickedAction(_ sender: Any) {
         performSegue(withIdentifier: "openMain", sender: nil)
     }

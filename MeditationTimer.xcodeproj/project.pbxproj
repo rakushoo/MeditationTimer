@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		290BCD22215A68EF00159D29 /* TitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290BCD21215A68EF00159D29 /* TitleViewController.swift */; };
-		290BCD24215BBA1F00159D29 /* SettingViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290BCD23215BBA1F00159D29 /* SettingViewController2.swift */; };
 		29107D3721F2F33700B6DA27 /* SectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29107D3621F2F33700B6DA27 /* SectionViewController.swift */; };
-		29107D3B21F2F4F100B6DA27 /* SectionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29107D3A21F2F4F100B6DA27 /* SectionDetailViewController.swift */; };
 		291DE04421B25CE300AF0A0C /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291DE04321B25CE300AF0A0C /* TabBarController.swift */; };
 		29A9B96B21A1A77F007DD424 /* water current.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 29A9B96A21A1A77E007DD424 /* water current.mp3 */; };
-		29BF351821C643E6001668BC /* TimeSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BF351721C643E6001668BC /* TimeSettingViewController.swift */; };
+		29B95179223E28A700F2D96E /* forest.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 29B95176223E28A700F2D96E /* forest.mp3 */; };
+		29B9517A223E28A700F2D96E /* rain.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 29B95177223E28A700F2D96E /* rain.mp3 */; };
+		29B9517B223E28A700F2D96E /* sea.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 29B95178223E28A700F2D96E /* sea.mp3 */; };
 		29CF2B1720D625BF00920494 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CF2B1620D625BF00920494 /* AppDelegate.swift */; };
 		29CF2B1920D625BF00920494 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CF2B1820D625BF00920494 /* ViewController.swift */; };
 		29CF2B1C20D625BF00920494 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29CF2B1A20D625BF00920494 /* Main.storyboard */; };
@@ -26,12 +26,12 @@
 
 /* Begin PBXFileReference section */
 		290BCD21215A68EF00159D29 /* TitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewController.swift; sourceTree = "<group>"; };
-		290BCD23215BBA1F00159D29 /* SettingViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController2.swift; sourceTree = "<group>"; };
 		29107D3621F2F33700B6DA27 /* SectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionViewController.swift; sourceTree = "<group>"; };
-		29107D3A21F2F4F100B6DA27 /* SectionDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionDetailViewController.swift; sourceTree = "<group>"; };
 		291DE04321B25CE300AF0A0C /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		29A9B96A21A1A77E007DD424 /* water current.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "water current.mp3"; sourceTree = "<group>"; };
-		29BF351721C643E6001668BC /* TimeSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSettingViewController.swift; sourceTree = "<group>"; };
+		29B95176223E28A700F2D96E /* forest.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = forest.mp3; sourceTree = "<group>"; };
+		29B95177223E28A700F2D96E /* rain.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rain.mp3; sourceTree = "<group>"; };
+		29B95178223E28A700F2D96E /* sea.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sea.mp3; sourceTree = "<group>"; };
 		29CF2B1320D625BF00920494 /* MeditationTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeditationTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29CF2B1620D625BF00920494 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		29CF2B1820D625BF00920494 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -75,23 +75,23 @@
 		29CF2B1520D625BF00920494 /* MeditationTimer */ = {
 			isa = PBXGroup;
 			children = (
-				29F4441C2205944D00188A9C /* SectionDetailViewController2.swift */,
-				29107D3A21F2F4F100B6DA27 /* SectionDetailViewController.swift */,
+				29B95176223E28A700F2D96E /* forest.mp3 */,
+				29B95177223E28A700F2D96E /* rain.mp3 */,
+				29B95178223E28A700F2D96E /* sea.mp3 */,
 				29A9B96A21A1A77E007DD424 /* water current.mp3 */,
 				29CF2B1620D625BF00920494 /* AppDelegate.swift */,
-				29CF2B1820D625BF00920494 /* ViewController.swift */,
 				29CF2B1A20D625BF00920494 /* Main.storyboard */,
 				29CF2B1D20D625BF00920494 /* Assets.xcassets */,
 				29CF2B1F20D625BF00920494 /* LaunchScreen.storyboard */,
 				29CF2B2220D625BF00920494 /* Info.plist */,
 				29F851DA212951FF00B6E3CC /* MeditationTimer-Bridging-Header.h */,
 				290BCD21215A68EF00159D29 /* TitleViewController.swift */,
-				290BCD23215BBA1F00159D29 /* SettingViewController2.swift */,
 				291DE04321B25CE300AF0A0C /* TabBarController.swift */,
-				29BF351721C643E6001668BC /* TimeSettingViewController.swift */,
-				29D35B7121DE097000D2C67A /* SettingViewController.swift */,
+				29CF2B1820D625BF00920494 /* ViewController.swift */,
 				29D35B7321DE0DAA00D2C67A /* TimeSettingViewController.swift */,
 				29107D3621F2F33700B6DA27 /* SectionViewController.swift */,
+				29F4441C2205944D00188A9C /* SectionDetailViewController2.swift */,
+				29D35B7121DE097000D2C67A /* SettingViewController.swift */,
 			);
 			path = MeditationTimer;
 			sourceTree = "<group>";
@@ -158,7 +158,10 @@
 			files = (
 				29CF2B2120D625BF00920494 /* LaunchScreen.storyboard in Resources */,
 				29A9B96B21A1A77F007DD424 /* water current.mp3 in Resources */,
+				29B9517B223E28A700F2D96E /* sea.mp3 in Resources */,
+				29B9517A223E28A700F2D96E /* rain.mp3 in Resources */,
 				29CF2B1E20D625BF00920494 /* Assets.xcassets in Resources */,
+				29B95179223E28A700F2D96E /* forest.mp3 in Resources */,
 				29CF2B1C20D625BF00920494 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -171,14 +174,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				29CF2B1920D625BF00920494 /* ViewController.swift in Sources */,
-				29107D3B21F2F4F100B6DA27 /* SectionDetailViewController.swift in Sources */,
-				290BCD24215BBA1F00159D29 /* SettingViewController2.swift in Sources */,
 				291DE04421B25CE300AF0A0C /* TabBarController.swift in Sources */,
 				29D35B7221DE097000D2C67A /* SettingViewController.swift in Sources */,
 				29CF2B1720D625BF00920494 /* AppDelegate.swift in Sources */,
 				29F4441D2205944D00188A9C /* SectionDetailViewController2.swift in Sources */,
 				29107D3721F2F33700B6DA27 /* SectionViewController.swift in Sources */,
-				29BF351821C643E6001668BC /* TimeSettingViewController.swift in Sources */,
 				29D35B7421DE0DAA00D2C67A /* TimeSettingViewController.swift in Sources */,
 				290BCD22215A68EF00159D29 /* TitleViewController.swift in Sources */,
 			);

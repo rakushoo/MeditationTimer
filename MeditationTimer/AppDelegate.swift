@@ -30,7 +30,7 @@ struct sectionData {
     var second: Int = 0
     var sound: SectionSound = SectionSound.Sea
     var alerm: SectionAlerm = SectionAlerm.TempleBlock
-    var bEnabled: Bool = true
+    var bEnabled: Bool = false
     var sectionName: String = String("セクション")
     
 }
@@ -39,7 +39,7 @@ struct timerData {
     var section: [sectionData] = [sectionData(), sectionData(), sectionData()]
     var currentSectionIndex:Int = 0
     var bEnabled: Bool = true
-    var timerName: String = String("タイマー")
+    var patternName: String = String("パターン")
 }
 
 
@@ -58,21 +58,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 
         //起動時の初期化
-        timerArray[0].timerName = String(format: "3分瞑想")
-        timerArray[0].section[0].minute = 3
+        timerArray[0].patternName = String(format: "3分瞑想")
+
+        timerArray[0].section[0].bEnabled = true
+        timerArray[0].section[0].minute = 1
+        timerArray[0].section[0].second = 30
+        timerArray[0].section[0].sound = SectionSound.Sea
         timerArray[0].section[0].sectionName = String("セクション1")
-        timerArray[1].timerName = String(format: "6分瞑想")
-        timerArray[1].section[0].minute = 3
+        
+        timerArray[0].section[1].bEnabled = true
+        timerArray[0].section[1].minute = 1
+        timerArray[0].section[1].second = 30
+        timerArray[0].section[1].sound = SectionSound.Forest
+        timerArray[0].section[1].sectionName = String("セクション2")
+
+        timerArray[1].patternName = String(format: "6分瞑想")
+        timerArray[1].section[0].bEnabled = true
+        timerArray[1].section[0].minute = 2
+        timerArray[1].section[0].sound = SectionSound.Forest
         timerArray[1].section[0].sectionName = String("セクション1")
+
         timerArray[1].section[1].bEnabled = true
-        timerArray[1].section[1].minute = 1
+        timerArray[1].section[1].minute = 4
         timerArray[1].section[1].sectionName = String("セクション2")
-        timerArray[2].timerName = String(format: "9分瞑想")
-        timerArray[2].section[0].minute = 3
+
+        timerArray[2].patternName = String(format: "9分瞑想")
+        timerArray[2].section[0].bEnabled = true
+        timerArray[2].section[0].minute = 1
+        timerArray[2].section[0].sound = SectionSound.Sea
         timerArray[2].section[0].sectionName = String("セクション1")
-        timerArray[2].section[1].minute = 3
+
+        timerArray[2].section[1].bEnabled = true
+        timerArray[2].section[1].minute = 4
         timerArray[2].section[1].sectionName = String("セクション2")
-        timerArray[2].section[2].minute = 3
+
+        timerArray[2].section[2].bEnabled = true
+        timerArray[2].section[2].minute = 4
         timerArray[2].section[2].sectionName = String("セクション3")
 
         return true

@@ -52,7 +52,7 @@ class TimeSettingViewController: UIViewController
         let i = indexPath.row
 
         if (appDelegate.timerArray[i].bEnabled) {
-            cell.textLabel!.text = appDelegate.timerArray[i].timerName + String(i)
+            cell.textLabel!.text = appDelegate.timerArray[i].patternName// + String(i)
         }
 
         // セルに">"を表示
