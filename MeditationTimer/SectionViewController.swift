@@ -73,6 +73,7 @@ class SectionViewController: UIViewController
             // 選択したインデックスを設定
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             appDelegate.timerArray[appDelegate.currentTimerIndex].currentSectionIndex = sectionIndex
+            //appDelegate.saveData()//このタイミングでuserDefaultsに保存
             
             // SectionDetailViewController へ遷移するために Segue を呼び出す
             performSegue(withIdentifier: "openDetail",sender: nil)

@@ -31,6 +31,7 @@ class SectionDetailViewController2: UIViewController
         let sectionIndex = data.currentSectionIndex
         appDelegate.timerArray[index].section[sectionIndex].minute = min
         appDelegate.timerArray[index].section[sectionIndex].second = sec
+        appDelegate.saveData()//このタイミングでuserDefaultsに保存
     }
     
     @IBAction func chooseAction(_ sender: Any) {

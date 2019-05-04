@@ -70,8 +70,9 @@ class TimeSettingViewController: UIViewController
             // 選択したインデックスを設定
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             appDelegate.currentTimerIndex = timerIndex
+            //appDelegate.saveData()//このタイミングでuserDefaultに保存
             
-            // SubViewController へ遷移するために Segue を呼び出す
+            // SectionViewController へ遷移するために Segue を呼び出す
             performSegue(withIdentifier: "openSection",sender: nil)
 
         }

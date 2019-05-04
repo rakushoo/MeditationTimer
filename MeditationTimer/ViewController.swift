@@ -40,11 +40,6 @@ class ViewController: UIViewController {
         else{
             label.text = "スタートボタンを押す。"
             labelSectionName.text = ""
-/*
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            let index = appDelegate.currentTimerIndex
-            modeLabel.text = appDelegate.timerArray[index].patternName
-  */
             modeLabel.text = getCurrentTimer().patternName
             buttonLabel.text = "スタート"
         }
